@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-09-29T11:27:34.280016+00:00",
+  "classification": "synthetic infrastructure preflight; not A14 real-corpus acceptance",
+  "workload": {
+    "documents": 100,
+    "pages_per_document": 20,
+    "content_units_per_page": 3,
+    "content_units": 6000,
+    "queue_tasks": 100,
+    "samples_per_http_path": 30,
+    "concurrency": 1,
+    "workers": 1,
+    "provider_calls": 0,
+    "seed_seconds": 34.166
+  },
+  "measurements_ms": {
+    "document_list": {"p50": 5.929, "p95": 8.344, "max": 21.231},
+    "task_status": {"p50": 4.247, "p95": 5.211, "max": 5.859},
+    "queue_claim_and_finish": {"p50": 8.681, "p95": 11.098, "max": 16.187},
+    "local_hybrid_retrieval_fake_provider": {"p50": 15.705, "p95": 19.166, "max": 700.873}
+  },
+  "gates": {
+    "document_list_p95_le_1000ms": true,
+    "task_status_p95_le_1000ms": true,
+    "local_retrieval_p95_le_2000ms": true
+  },
+  "environment": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+    "python": "3.13.7",
+    "logical_cpu_count": 18,
+    "postgresql": "17.11 (Debian 17.11-1.pgdg12+2)",
+    "pgvector": "0.8.6",
+    "database_table_bytes": {
+      "background_tasks": 114688,
+      "content_unit_embeddings": 148160512,
+      "content_units": 9052160,
+      "document_pages": 1441792,
+      "document_versions": 188416,
+      "documents": 278528,
+      "embedding_cache": 79716352
+    }
+  }
+}

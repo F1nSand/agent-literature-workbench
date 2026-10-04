@@ -1,0 +1,81 @@
+{
+  "run_id": "m3-raster-page-ocr-acceptance-2026-09-29",
+  "status": "completed_within_cap",
+  "purpose": "Exercise image-only page ingestion, OCR-derived retrieval, page-only citation, and original-page preview without adding a development fixture or question to the running user library.",
+  "input": {
+    "fixture": "evals/datasets/fixtures/rasterized-mobia-page-05.pdf",
+    "sha256": "386CB0004209A5558AEEC9C2AE8CEB724C71037303EC78863140E1A93DF33390",
+    "bytes": 1358924,
+    "pages": 1,
+    "source_document": "04‑中文‑大语言模型智能体出行日志.pdf",
+    "source_sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+    "source_physical_page": 5,
+    "generation_method": "Rasterized original PDF page at 2.4x and embedded it as the only image in a new one-page PDF; verified the resulting PDF text layer is empty.",
+    "is_a_camera_scan": false
+  },
+  "run_cap": {
+    "isolated_acceptance_database": true,
+    "visible_in_running_frontend_library": false,
+    "maximum_documents": 1,
+    "maximum_pages": 1,
+    "ocr_requests": 1,
+    "ocr_output_tokens_per_request": 1024,
+    "content_embedding_requests": 1,
+    "maximum_estimated_ingest_tokens": 36000,
+    "maximum_embedding_prompt_tokens_per_task": 40000,
+    "query_embedding_requests": 1,
+    "maximum_query_characters": 2000,
+    "reranker_requests": 1,
+    "maximum_reranker_candidates": 30,
+    "chat_requests": 2,
+    "maximum_chat_output_tokens_per_request": 512,
+    "vision_requests": 0,
+    "maximum_total_provider_requests": 6,
+    "ingestion_task_max_attempts": 1,
+    "question_task_max_attempts": 1,
+    "implicit_provider_http_retries": 0,
+    "price_rates_source": "Configured SiliconFlow model rates checked 2026-09-29; per-account settlement is not exposed in inference responses. Actual provider usage and configured-rate estimate will be recorded after the run."
+  },
+  "expected_question": "图1下方的中文图注写了什么？",
+  "actuals": {
+    "isolated_test_database_created_and_dropped": true,
+    "test_document_created_outside_user_library": true,
+    "upload_status": "queued",
+    "final_document_ready_confirmed_by_original_page_preview": true,
+    "pages": 1,
+    "ocr_pages": 1,
+    "extraction_method": "cloud_ocr",
+    "content_units": 1,
+    "content_unit_source": "cloud_ocr",
+    "derived_units": 1,
+    "embedded_units": 1,
+    "retrieval_tool_calls": 1,
+    "candidate_pages": [1],
+    "answer": "根据检索到的证据，图1下方的中文图注是“图 1 MobiA 出行日志生成流程图”。",
+    "citation": {
+      "page_number": 1,
+      "quote": "",
+      "reason": "扫描页识别内容仅用于定位，请核对原始 PDF 页面。",
+      "is_derived": true
+    },
+    "original_page_preview": {
+      "http_status": 200,
+      "content_type": "image/png",
+      "png_signature_valid": true,
+      "bytes": 1089491
+    },
+    "provider_requests": {"ocr": 1, "embedding": 2, "reranker": 1, "chat": 2, "vision": 0, "total": 6},
+    "provider_prompt_tokens_reported": 3880,
+    "provider_prompt_tokens_estimated": 3820,
+    "provider_completion_tokens": 960,
+    "estimated_cost_cny": 0.009082,
+    "ingestion_attempts": 1,
+    "question_attempts": 1,
+    "result": "The OCR-derived unit was retrieved; the answer cited physical page 1 with no verbatim quote; the page-preview endpoint returned the original PDF page as a valid PNG. All data was isolated from the running user library and the temporary database was dropped after evidence collection."
+  },
+  "limitations": [
+    "This is a controlled raster-only transformation of a genuine sample-paper page, not a physical camera scan.",
+    "A successful run validates the OCR/evidence/citation/page-preview software path for one page; it does not establish general scan OCR accuracy.",
+    "The upload response initially reports queued; a successful page-preview response requires the active version to be ready."
+  ]
+}

@@ -1,0 +1,31 @@
+FROM python:3.13.7-slim-bookworm@sha256:adafcc17694d715c905b4c7bebd96907a1fd5cf183395f0ebc4d3428bd22d92d AS dependencies
+
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONDONTWRITEBYTECODE=1
+WORKDIR /build
+COPY requirements.runtime.lock ./
+RUN python -m pip install --no-cache-dir --no-compile --target=/opt/python -r requirements.runtime.lock \
+    && PYTHONPATH=/opt/python python -c "import alembic, fastapi, fitz, langgraph, numpy, psycopg, pypdf, sqlalchemy, uvicorn"
+RUN rm -rf /opt/python/anyio/pytest_plugin.py /opt/python/sniffio/_tests
+RUN mkdir -p /seed/data && chmod 700 /seed/data
+
+FROM gcr.io/distroless/python3-debian13:nonroot@sha256:8ee214843129f43e2ebf5e0ca9f2e4e6d8292143d1b8a6787f169b5898578884
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/opt/python
+
+WORKDIR /app
+COPY --from=dependencies --chown=65532:65532 /opt/python /opt/python
+COPY --from=dependencies --chown=65532:65532 /seed/data /data
+COPY --chown=65532:65532 app ./app
+COPY --chown=65532:65532 migrations ./migrations
+COPY --chown=65532:65532 alembic.ini ./alembic.ini
+RUN ["/usr/bin/python3", "-c", "import alembic, app.main, fitz, langgraph, numpy, psycopg, pypdf, sqlalchemy, uvicorn"]
+
+EXPOSE 8000
+# Existing literature_data volumes were created by the root-run development image.
+# Keep this runtime UID compatible until a separately backed-up volume ownership migration is planned.
+USER 0:0
+ENTRYPOINT ["/usr/bin/python3"]
+CMD ["-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,43 @@
+provider: siliconflow
+base_url: https://api.siliconflow.cn/v1
+api_key_env: SILICONFLOW_API_KEY
+
+# M0-tested defaults. Do not expose the API key to frontend code or logs.
+profiles:
+  chat:
+    model: deepseek-ai/DeepSeek-V3.2
+    endpoint: /chat/completions
+    verified: function-call roundtrip completed with a synthetic local tool result
+    price_cny_per_million_tokens:
+      input: 4
+      output: 6
+  ocr:
+    model: Qwen/Qwen3-VL-8B-Instruct
+    endpoint: /chat/completions
+    verified: all predefined text markers matched on the one-page synthetic scan
+    limitations:
+      - general OCR accuracy is not established by one synthetic page
+      - bounding boxes and character-level locations were not verified
+  vision:
+    model: Qwen/Qwen3-VL-32B-Instruct
+    endpoint: /chat/completions
+    verified: identified the three numbered stages and feedback arrows in one cropped figure
+    limitations:
+      - single-figure smoke test only
+      - the 8B model missed the numbered stages when sent the full page
+  embedding:
+    model: Qwen/Qwen3-Embedding-4B
+    endpoint: /embeddings
+    dimensions: 2560
+    verified: one short Chinese input returned exactly 2560 dimensions
+  reranker:
+    model: BAAI/bge-reranker-v2-m3
+    endpoint: /rerank
+    verified: ranked two relevant synthetic passages above one unrelated passage
+
+probe_limits:
+  approved_total_budget_cny: 10
+  billed_model_requests: 7
+  bulk_processing: false
+  automatic_retries: 0
+  followup_stage_requires_separate_budget_approval: true

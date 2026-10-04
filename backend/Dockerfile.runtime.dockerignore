@@ -1,0 +1,7 @@
+**
+!requirements.runtime.lock
+!app/
+!app/**
+!migrations/
+!migrations/**
+!alembic.ini

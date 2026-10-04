@@ -1,0 +1,94 @@
+{
+  "run_id": "m3-sample-batch-2026-09-29",
+  "status": "completed_within_cap",
+  "purpose": "First real new-file imports to verify that new documents are processed without re-running the existing M2 document.",
+  "preflight": {
+    "executed_inside_api_container": true,
+    "provider_calls": 0,
+    "embedding_model": "Qwen/Qwen3-Embedding-4B",
+    "documents": [
+      {
+        "filename": "02‑ModelScope‑Agent.pdf",
+        "sha256": "ADB46BFBE0F05631DE6E0E2B4273E2E7A823D1D1A56D66C303FC77C1A5DFE596",
+        "pages": 13,
+        "ocr_trigger_pages": 0,
+        "content_units": 40,
+        "unit_types": {"text": 25, "formula": 3, "table": 2, "chart": 10},
+        "cache_hits": 0,
+        "embedding_estimated_tokens": 16214,
+        "expected_embedding_requests": 1
+      },
+      {
+        "filename": "03‑Tongyi‑DeepResearch‑Report.pdf",
+        "sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+        "pages": 23,
+        "ocr_trigger_pages": 0,
+        "content_units": 60,
+        "unit_types": {"text": 46, "formula": 3, "chart": 11},
+        "cache_hits": 0,
+        "embedding_estimated_tokens": 28217,
+        "expected_embedding_requests": 1
+      },
+      {
+        "filename": "04‑中文‑大语言模型智能体出行日志.pdf",
+        "sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+        "pages": 18,
+        "ocr_trigger_pages": 0,
+        "content_units": 50,
+        "unit_types": {"text": 24, "formula": 3, "table": 2, "chart": 21},
+        "cache_hits": 0,
+        "embedding_estimated_tokens": 19115,
+        "expected_embedding_requests": 1
+      }
+    ],
+    "total_pages": 54,
+    "total_content_units": 150,
+    "total_embedding_estimated_tokens": 63546,
+    "existing_document_count_before_run": 1,
+    "existing_document_status_before_run": "ready",
+    "provider_call_count_before_run": 7
+  },
+  "run_cap": {
+    "maximum_new_documents": 3,
+    "maximum_new_pages": 54,
+    "ocr_requests": 0,
+    "vision_requests": 0,
+    "reranker_requests": 0,
+    "chat_requests": 0,
+    "expected_embedding_requests": 3,
+    "maximum_embedding_requests_enforced_per_task": 2,
+    "maximum_embedding_requests_across_these_tasks": 6,
+    "maximum_estimated_tokens_enforced_per_document": 36000,
+    "maximum_estimated_embedding_prompt_tokens_enforced_per_task": 40000,
+    "maximum_aggregate_estimated_embedding_prompt_tokens": 120000,
+    "implicit_provider_http_retries": 0,
+    "existing_documents_reprocessed": 0,
+    "price_reference": "Project's rate recorded from SiliconFlow pricing check on 2026-09-29: Qwen/Qwen3-Embedding-4B input CNY 0.14 per million tokens; account billing is not exposed by inference responses.",
+    "estimated_cost_for_preflight_tokens_cny": 0.00889644,
+    "estimated_cost_ceiling_under_enforced_token_caps_cny": 0.0168,
+    "cost_interpretation": "Token caps are enforced by the application. CNY amounts are estimates from the configured public rate; exact account settlement is unavailable."
+  },
+  "database_before_file": "work/reviews/m3-page-audit/db-before.json",
+  "database_after_file": "work/reviews/m3-page-audit/db-after.json",
+  "actuals": {
+    "documents_created": 3,
+    "document_statuses": ["ready", "ready", "ready"],
+    "pages_ingested": 54,
+    "ocr_pages": 0,
+    "content_units_ingested": 150,
+    "content_units_with_embeddings": 150,
+    "provider_requests": 3,
+    "provider_request_purposes": {"embedding": 3, "ocr": 0, "vision": 0, "reranker": 0, "chat": 0},
+    "provider_prompt_tokens_reported": 46711,
+    "provider_prompt_tokens_estimated": 63546,
+    "estimated_cost_cny": 0.00654,
+    "ingestion_attempt_count_per_new_document": 1,
+    "preexisting_document_provider_calls_added": 0,
+    "final_library_counts": {"documents": 4, "versions": 4, "total_provider_calls": 10},
+    "result": "All three new documents became ready. The original M2 document stayed ready and received no new provider calls; the batch performed exactly one embedding request per new document."
+  },
+  "limitations": [
+    "All pages exceed the native-text OCR threshold; this does not prove the extracted text is accurate.",
+    "This import run does not make the sample qrels human-confirmed and must not be described as formal R1/R2/R3 evaluation."
+  ]
+}

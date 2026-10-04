@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-09-29T13:01:53.5247343Z",
+  "classification": "isolated Compose empty-volume startup, migration, readiness, and service health acceptance; synthetic only; no Provider key or request",
+  "isolated_project": "m5empty-fcdb9eed2773",
+  "actual_loopback_ports": {
+    "db": 62436,
+    "api": 61356,
+    "frontend": 56222
+  },
+  "checks": {
+    "compose_services_healthy": true,
+    "service_health": {
+      "api": "healthy",
+      "db": "healthy",
+      "frontend": "healthy",
+      "worker": "healthy"
+    },
+    "api_readiness": true,
+    "api_readiness_response": {
+      "status": "ok",
+      "database": "ok"
+    },
+    "frontend_http_200": true,
+    "frontend_status_code": 200,
+    "migration_at_head": false,
+    "migration_revision": ""
+  },
+  "cleanup_succeeded": true,
+  "formal_project_services_still_running": true,
+  "result": {
+    "passed": false,
+    "error": "Database migration revision did not match Alembic head."
+  }
+}

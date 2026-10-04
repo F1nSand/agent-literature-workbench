@@ -1,0 +1,1078 @@
+{
+  "run_id": "candidate-20260929T012759Z-d0a58d98",
+  "generated_at_utc": "2026-09-29T01:27:59.781482+00:00",
+  "evaluation_scope": "candidate-exploration",
+  "annotation_status": "candidate",
+  "official_claim_allowed": false,
+  "corpus_manifest_sha256": "2C66E40A581D068BF7486E71836F9005C1E3DFAD307F50504845DAD2A6A24E84",
+  "dataset_id": "sample-research-questions-v1",
+  "qrels_source_review": "sample-question-evidence-review.md",
+  "query_count": 8,
+  "corpus": [
+    {
+      "filename": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+      "sha256": "519213AB1946D78C8693F7F4E3B79A288379EE639979A6DFFE6BD3076CDEE423",
+      "page_count": 24,
+      "document_id": "bdda755f-4c52-49e8-b1f9-13941064bac5",
+      "version_id": "bdda755f-4c52-49e8-b1f9-13941064bac5"
+    },
+    {
+      "filename": "02‑ModelScope‑Agent.pdf",
+      "sha256": "ADB46BFBE0F05631DE6E0E2B4273E2E7A823D1D1A56D66C303FC77C1A5DFE596",
+      "page_count": 13,
+      "document_id": "a83c377e-aa4c-461e-b999-e4a65fd34b26",
+      "version_id": "ad1cc47d-2cc0-4909-83d6-f12877368f35"
+    },
+    {
+      "filename": "03‑Tongyi‑DeepResearch‑Report.pdf",
+      "sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+      "page_count": 23,
+      "document_id": "1db8462b-cc82-409a-af5c-26bdc6610d72",
+      "version_id": "357a49b9-d3ff-4ef9-b836-ba54cfd46100"
+    },
+    {
+      "filename": "04‑中文‑大语言模型智能体出行日志.pdf",
+      "sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+      "page_count": 18,
+      "document_id": "d67ae3d3-8ab9-4535-9891-df3b5a61f339",
+      "version_id": "77e75b70-dc16-4030-9ef9-290c4e0776a4"
+    }
+  ],
+  "index_generation_id": "dbcb1b26-bd51-49f0-be16-b025a1fd20cb",
+  "embedding_model": "Qwen/Qwen3-Embedding-4B",
+  "retrieval_config": {
+    "vector_candidates": 30,
+    "lexical_candidates": 30,
+    "rrf_k": 60,
+    "rrf_candidates": 40,
+    "reranker_candidates_max": 40,
+    "page_text_max_chars": 4000,
+    "result_pages": 8,
+    "query_embedding_cache_hits": 0,
+    "query_embedding_batch_latency_ms": 592,
+    "query_embedding_latency_apportioned_equally": true,
+    "reranker_input": "each candidate page concatenates up to four highest-RRF-ranked units, truncated to 4000 characters"
+  },
+  "budget": {
+    "max_provider_requests": 9,
+    "max_reranker_requests": 8,
+    "max_embedding_query_tokens": 8000,
+    "max_reranker_prompt_tokens": 1350000,
+    "max_estimated_cost_cny": 0.01,
+    "provider_requests_made": 9,
+    "provider_tokens_by_purpose": {
+      "embedding": 418,
+      "reranker": 203121
+    },
+    "estimated_cost_cny": 3.8e-05,
+    "provider_calls": [
+      {
+        "purpose": "embedding",
+        "model": "Qwen/Qwen3-Embedding-4B",
+        "status": "succeeded",
+        "prompt_tokens": 272,
+        "estimated_prompt_tokens": 418,
+        "completion_tokens": 0,
+        "estimated_cost_cny": 3.808000000000001e-05,
+        "rate_source": "https://siliconflow.cn/pricing (checked 2026-09-29)",
+        "latency_ms": 546,
+        "provider_trace_id": "ti_3x1vdoueyvwop9ddb2",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 25121,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 780,
+        "provider_trace_id": "ti_53576g5pjsxttvusns",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 25973,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 759,
+        "provider_trace_id": "ti_bhiscbx773wtxekfue",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 23055,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 722,
+        "provider_trace_id": "ti_pedi1t154x3cucg8yk",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 26339,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 807,
+        "provider_trace_id": "ti_n5jjog9x93shxpks6j",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 18855,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 592,
+        "provider_trace_id": "ti_qep10bymu1wsfn63ns",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 28200,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 867,
+        "provider_trace_id": "ti_kwwkcffzgo6ka98d23",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 26607,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 809,
+        "provider_trace_id": "ti_hw641523g8850nhfoc",
+        "error_code": null
+      },
+      {
+        "purpose": "reranker",
+        "model": "BAAI/bge-reranker-v2-m3",
+        "status": "succeeded",
+        "prompt_tokens": null,
+        "estimated_prompt_tokens": 28971,
+        "completion_tokens": null,
+        "estimated_cost_cny": 0.0,
+        "rate_source": "https://siliconflow.cn/pricing (listed free, checked 2026-09-29)",
+        "latency_ms": 934,
+        "provider_trace_id": "ti_q4ez8di7h3cu02avt8",
+        "error_code": null
+      }
+    ]
+  },
+  "strategies": {
+    "R1": {
+      "rankings": {
+        "Q1": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 9
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 14
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 20
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 8
+          }
+        ],
+        "Q2": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 11
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 15
+          }
+        ],
+        "Q3": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 8
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 1
+          }
+        ],
+        "Q4": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 11
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 15
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 19
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 22
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 21
+          }
+        ],
+        "Q5": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 17
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 7
+          }
+        ],
+        "Q6": [
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 6
+          }
+        ],
+        "Q7": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 14
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 14
+          }
+        ],
+        "Q8": [
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 19
+          }
+        ]
+      },
+      "latency_ms_by_question": {
+        "Q1": 104,
+        "Q2": 89,
+        "Q3": 90,
+        "Q4": 89,
+        "Q5": 90,
+        "Q6": 90,
+        "Q7": 91,
+        "Q8": 93
+      },
+      "request_cost_cny_by_question": {
+        "Q1": 4.2817224880382785e-06,
+        "Q2": 4.828325358851676e-06,
+        "Q3": 4.09952153110048e-06,
+        "Q4": 3.644019138755982e-06,
+        "Q5": 5.1927272727272744e-06,
+        "Q6": 5.283827751196173e-06,
+        "Q7": 5.92153110047847e-06,
+        "Q8": 4.828325358851676e-06
+      }
+    },
+    "R2": {
+      "rankings": {
+        "Q1": [
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 8
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 9
+          }
+        ],
+        "Q2": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 15
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 10
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 12
+          }
+        ],
+        "Q3": [
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 11
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 2
+          }
+        ],
+        "Q4": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 14
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 22
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 11
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 11
+          }
+        ],
+        "Q5": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 17
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 14
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 13
+          }
+        ],
+        "Q6": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 10
+          }
+        ],
+        "Q7": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 17
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 5
+          }
+        ],
+        "Q8": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 8
+          }
+        ]
+      },
+      "latency_ms_by_question": {
+        "Q1": 809,
+        "Q2": 121,
+        "Q3": 123,
+        "Q4": 113,
+        "Q5": 114,
+        "Q6": 122,
+        "Q7": 121,
+        "Q8": 126
+      },
+      "request_cost_cny_by_question": {
+        "Q1": 4.2817224880382785e-06,
+        "Q2": 4.828325358851676e-06,
+        "Q3": 4.09952153110048e-06,
+        "Q4": 3.644019138755982e-06,
+        "Q5": 5.1927272727272744e-06,
+        "Q6": 5.283827751196173e-06,
+        "Q7": 5.92153110047847e-06,
+        "Q8": 4.828325358851676e-06
+      }
+    },
+    "R3": {
+      "rankings": {
+        "Q1": [
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 20
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 19
+          }
+        ],
+        "Q2": [
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 11
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 15
+          }
+        ],
+        "Q3": [
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 11
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 14
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 9
+          },
+          {
+            "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+            "page_number": 10
+          }
+        ],
+        "Q4": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 14
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 11
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 19
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 22
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 10
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 11
+          }
+        ],
+        "Q5": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 17
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 3
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 16
+          }
+        ],
+        "Q6": [
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 13
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 7
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 18
+          }
+        ],
+        "Q7": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 5
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 20
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 6
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 12
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 3
+          }
+        ],
+        "Q8": [
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 4
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 18
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 1
+          },
+          {
+            "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+            "page_number": 20
+          },
+          {
+            "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+            "page_number": 16
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 2
+          },
+          {
+            "document": "02‑ModelScope‑Agent.pdf",
+            "page_number": 7
+          }
+        ]
+      },
+      "latency_ms_by_question": {
+        "Q1": 1589,
+        "Q2": 880,
+        "Q3": 845,
+        "Q4": 920,
+        "Q5": 706,
+        "Q6": 989,
+        "Q7": 930,
+        "Q8": 1060
+      },
+      "request_cost_cny_by_question": {
+        "Q1": 4.2817224880382785e-06,
+        "Q2": 4.828325358851676e-06,
+        "Q3": 4.09952153110048e-06,
+        "Q4": 3.644019138755982e-06,
+        "Q5": 5.1927272727272744e-06,
+        "Q6": 5.283827751196173e-06,
+        "Q7": 5.92153110047847e-06,
+        "Q8": 4.828325358851676e-06
+      }
+    }
+  }
+}

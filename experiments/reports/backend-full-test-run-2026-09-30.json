@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "verification_date": "2026-09-30",
+  "classification": "isolated full backend regression; no real provider calls",
+  "command": "python -m pytest -q tests",
+  "environment": {
+    "python": "3.13.7",
+    "postgres_image": "pgvector/pgvector:0.8.6-pg17@sha256:cf134a767f474095eeba57e0117be8e568e011a63f33fbf252f14c9b760f8e6f",
+    "database": "fresh ephemeral database migrated to 20260929_0005",
+    "database_host_port_published": false,
+    "database_volume_persisted": false,
+    "provider_api_key_injected": false,
+    "read_only_inputs": [
+      "/evals",
+      "/示例论文文档与问题集"
+    ]
+  },
+  "tests_collected": 102,
+  "tests_passed": 102,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "external_provider_requests": 0,
+  "result": "passed",
+  "cleanup": {
+    "temporary_database_container_removed": true,
+    "temporary_network_removed": true,
+    "formal_database_and_file_volumes_touched": false
+  },
+  "warnings": [
+    "Starlette TestClient emits the existing AnyIO BlockingPortal deprecation warning."
+  ]
+}

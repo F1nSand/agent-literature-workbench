@@ -1,0 +1,134 @@
+name: literature-workbench
+
+services:
+  db:
+    image: pgvector/pgvector:0.8.6-pg17@sha256:cf134a767f474095eeba57e0117be8e568e011a63f33fbf252f14c9b760f8e6f
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: workbench
+      POSTGRES_USER: workbench
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-workbench-local}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U workbench -d workbench"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.runtime
+    environment:
+      DATABASE_URL: postgresql+psycopg://workbench:${POSTGRES_PASSWORD:-workbench-local}@db:5432/workbench
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["-m", "alembic", "upgrade", "head"]
+    restart: "no"
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.runtime
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: production
+      DATABASE_URL: postgresql+psycopg://workbench:${POSTGRES_PASSWORD:-workbench-local}@db:5432/workbench
+      SILICONFLOW_API_KEY: ${SILICONFLOW_API_KEY:-}
+      DATA_DIR: /data
+      LANGGRAPH_STRICT_MSGPACK: "true"
+      LANGSMITH_TRACING: "false"
+      LANGCHAIN_TRACING_V2: "false"
+      DOCX_CONVERTER_URL: http://docx-converter:8080
+    volumes:
+      - literature_data:/data
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      docx-converter:
+        condition: service_healthy
+    networks:
+      - default
+      - docx_internal
+    healthcheck:
+      test: ["CMD", "/usr/bin/python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=2)"]
+      interval: 10s
+      timeout: 4s
+      retries: 10
+      start_period: 5s
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.runtime
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: production
+      DATABASE_URL: postgresql+psycopg://workbench:${POSTGRES_PASSWORD:-workbench-local}@db:5432/workbench
+      SILICONFLOW_API_KEY: ${SILICONFLOW_API_KEY:-}
+      LOG_LEVEL: INFO
+      DATA_DIR: /data
+      LANGGRAPH_STRICT_MSGPACK: "true"
+      LANGSMITH_TRACING: "false"
+      LANGCHAIN_TRACING_V2: "false"
+      DOCX_CONVERTER_URL: http://docx-converter:8080
+    volumes:
+      - literature_data:/data
+    command: ["-m", "app.jobs.worker"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      docx-converter:
+        condition: service_healthy
+    networks:
+      - default
+      - docx_internal
+
+  docx-converter:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.converter
+    restart: unless-stopped
+    environment:
+      TMPDIR: /tmp
+    expose:
+      - "8080"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=512m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 1g
+    cpus: 1.0
+    pids_limit: 128
+    networks:
+      - docx_internal
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.runtime
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5174:80"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  literature_data:
+
+networks:
+  docx_internal:
+    internal: true

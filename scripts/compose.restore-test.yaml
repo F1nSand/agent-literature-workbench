@@ -1,0 +1,7 @@
+services:
+  db:
+    ports: !override []
+  api:
+    ports: !override []
+  frontend:
+    ports: !override []

@@ -1,0 +1,221 @@
+:root {
+  --surface-pointer-x: 0px;
+  --surface-pointer-y: 0px;
+  --surface-pointer-xp: 50%;
+  --surface-pointer-yp: 45%;
+  --surface-pointer-dx: 0px;
+  --surface-pointer-dy: 0px;
+  --surface-scroll-shift: 0px;
+  --surface-ease: cubic-bezier(.2, 0, 0, 1);
+}
+
+html, body { background: #f4f5ef; }
+body { position: relative; }
+.motion-backdrop {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(145deg, #f7f7f0 0%, #f2f5ef 52%, #f4f5ef 100%);
+}
+.motion-light {
+  position: absolute;
+  width: min(72vw, 880px);
+  height: min(72vw, 780px);
+  border-radius: 50%;
+  opacity: .5;
+  transform: translate3d(0, 0, 0);
+}
+.motion-light-sage {
+  top: -38%; left: -24%;
+  background: radial-gradient(ellipse at center, #dbe9d7 0%, #e9efe5 43%, transparent 73%);
+}
+.motion-light-blue {
+  right: -30%; top: 6%;
+  background: radial-gradient(ellipse at center, #dce9e9 0%, #edf1ed 43%, transparent 73%);
+}
+.motion-light-apricot {
+  width: min(66vw, 760px); height: min(54vw, 600px);
+  left: 29%; bottom: -48%; opacity: .35;
+  background: radial-gradient(ellipse at center, #efe5d6 0%, #f2eee4 42%, transparent 73%);
+}
+html.surface-motion-enabled:not(.surface-motion-reduced) .motion-light-sage {
+  animation: light-sage-drift 28s ease-in-out infinite alternate;
+  transform: translate3d(var(--surface-pointer-dx), calc(var(--surface-pointer-dy) + var(--surface-scroll-shift)), 0);
+}
+html.surface-motion-enabled:not(.surface-motion-reduced) .motion-light-blue {
+  animation: light-blue-drift 31s ease-in-out infinite alternate;
+  transform: translate3d(calc(var(--surface-pointer-dx) * -.6), calc(var(--surface-pointer-dy) + var(--surface-scroll-shift)), 0);
+}
+html.surface-motion-enabled:not(.surface-motion-reduced) .motion-light-apricot {
+  animation: light-apricot-drift 26s ease-in-out infinite alternate;
+  transform: translate3d(calc(var(--surface-pointer-dx) * .5), calc(var(--surface-pointer-dy) * -.5), 0);
+}
+html.surface-motion-paused .motion-light { animation-play-state: paused !important; }
+@keyframes light-sage-drift {
+  from { opacity: .38; }
+  to { opacity: .58; }
+}
+@keyframes light-blue-drift {
+  from { opacity: .36; }
+  to { opacity: .53; }
+}
+@keyframes light-apricot-drift {
+  from { opacity: .25; }
+  to { opacity: .39; }
+}
+
+.app-frame { position: relative; z-index: 1; }
+.app-sidebar { background: rgb(251 252 248 / 94%); backdrop-filter: blur(8px); }
+.topbar { position: sticky; top: 0; z-index: 5; background: rgb(244 245 239 / 88%); transition: border-color 180ms var(--surface-ease), box-shadow 180ms var(--surface-ease); backdrop-filter: blur(10px); }
+html.surface-motion-enabled:not(.surface-motion-reduced) .topbar { box-shadow: 0 5px 16px rgb(38 58 48 / 4%); }
+.main-area { position: relative; }
+.main-area > .page-content { position: relative; }
+.app-sidebar, .topbar, .page-footer { border-color: rgb(223 229 220 / 85%); }
+
+.motion-toggle {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px solid #dce5d9;
+  border-radius: 8px;
+  color: #4d6654;
+  background: rgb(255 254 250 / 85%);
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 140ms var(--surface-ease), border-color 140ms var(--surface-ease), transform 120ms var(--surface-ease);
+}
+.motion-toggle:hover { border-color: #c4d5c3; background: #f5f8f1; }
+.motion-toggle:active { transform: scale(.98); }
+.motion-toggle:focus-visible { outline: 3px solid #62866b; outline-offset: 2px; }
+.motion-toggle i { width: 7px; height: 7px; border-radius: 50%; background: #78a181; }
+.motion-toggle[aria-pressed="false"] i { background: #9aa399; }
+.settings-motion-panel {
+  width: min(100%, 760px);
+  margin: 30px auto 0;
+  padding: 22px 24px;
+  border: 1px solid #e1e8de;
+  border-radius: 12px;
+  background: rgb(255 254 250 / 88%);
+  box-shadow: 0 10px 30px rgb(38 58 48 / 4%);
+}
+.settings-motion-panel h2 { margin: 0 0 5px; color: #34483a; font: 500 17px/1.5 'Noto Serif SC', serif; }
+.settings-motion-panel p { margin: 0; color: #5e7064; font-size: 13px; line-height: 1.8; }
+.settings-motion-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.settings-motion-row .motion-toggle { min-height: 38px; flex: 0 0 auto; }
+
+.nav-item, .workspace-tool-plus, .workspace-tool-history, .home-tools-entry button,
+.reading-actions button, .reading-actions a, .nav-tabs button, .outline-item,
+.document-row, .document-cover, .library-primary, .library-dropzone,
+.suggestion-row button, .message-citations button, .workspace-icon-button,
+.workspace-primary, .workspace-quiet-button, .note-version-row, .assistant-history-row {
+  transition-duration: 150ms;
+  transition-timing-function: var(--surface-ease);
+}
+.nav-item:hover .nav-icon { transform: translateY(-1px); }
+.nav-icon { transition: transform 150ms var(--surface-ease), color 150ms var(--surface-ease); }
+.home-library-entry { isolation: isolate; overflow: hidden; background: linear-gradient(135deg, #4c765f 0%, #416c57 52%, #3b6353 100%); transition: transform 170ms var(--surface-ease), box-shadow 170ms var(--surface-ease), border-color 170ms var(--surface-ease); }
+.home-library-entry::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(240px circle at var(--surface-pointer-xp) var(--surface-pointer-yp), rgb(241 247 228 / 22%), transparent 72%);
+  transition: opacity 160ms var(--surface-ease);
+}
+.home-library-entry:hover::before, .home-library-entry:focus-visible::before { opacity: 1; }
+.home-library-entry:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgb(41 73 50 / 12%); }
+.home-entry-arrow svg { transition: transform 150ms var(--surface-ease); }
+.home-library-entry:hover .home-entry-arrow svg { transform: translateX(3px); }
+.entry-card:hover, .panel:hover { border-color: #dce5d9; }
+.home-tools-entry button:hover { transform: translateY(-1px); box-shadow: 0 5px 12px rgb(38 58 48 / 6%); }
+.home-reading-note { background: linear-gradient(118deg, #edf2e8, #eef2ed 55%, #f3eee3); }
+.document-row { border-radius: 8px; transition: background-color 150ms var(--surface-ease), border-color 150ms var(--surface-ease); }
+.document-row:hover { background: linear-gradient(90deg, rgb(232 239 230 / 60%), rgb(255 254 250 / 35%)); }
+.document-row:hover .document-cover { transform: translateY(-1px); box-shadow: 0 4px 10px rgb(38 58 48 / 9%); }
+.document-title:focus-visible, .outline-item:focus-visible, .nav-tabs button:focus-visible { outline: 2px solid #62866b; outline-offset: 2px; }
+.reading-page, .library-page, .stage-page { position: relative; }
+.reading-layout, .reading-nav, .reading-header, .library-summary, .library-dropzone, .settings-motion-panel { backdrop-filter: blur(5px); }
+.reading-nav { background: rgb(250 251 247 / 91%); }
+.reading-surface, .text-reading, .text-scroll { background-color: #fffef8; }
+.reading-actions button:hover, .reading-actions a:hover, .bookmark-button:hover,
+.pdf-tools button:hover, .epub-tools button:hover, .text-reading button:hover,
+.selection-tools button:hover, .nav-tabs button:hover, .thumbnails button:hover {
+  border-color: #c7d7c5;
+  color: #355e45;
+  background-color: #f0f5ed;
+}
+.pdf-tools, .epub-tools { background: linear-gradient(100deg, #f7faf5, #fbfcf8 65%, #f2f6f3); }
+.pdf-tools button, .pdf-tools select, .pdf-tools input, .epub-tools button, .epub-tools select,
+.text-reading input, .text-reading button, .selection-tools button, .selection-tools input { transition: border-color 140ms var(--surface-ease), background-color 140ms var(--surface-ease), color 140ms var(--surface-ease); }
+.text-reading input:focus-visible, .assistant-composer textarea:focus-visible { outline: 2px solid #7d9e7c; outline-offset: 1px; }
+.thumbnails img { transition: border-color 150ms var(--surface-ease), box-shadow 150ms var(--surface-ease), transform 150ms var(--surface-ease); }
+.thumbnails button:hover img, .thumbnails button:focus-visible img { border-color: #90ad8f; box-shadow: 0 5px 12px rgb(38 58 48 / 10%); transform: translateY(-1px); }
+.workspace-floating-window { background: linear-gradient(160deg, #fffefa, #fbfcf8); }
+.workspace-window-bar { background: linear-gradient(100deg, #f7faf5, #fbfcf8 60%, #f5f7f2); }
+.note-history, .candidate-review, .assistant-context-bar { background-image: linear-gradient(130deg, rgb(235 242 233 / 58%), rgb(241 245 246 / 38%)); }
+.note-editor, .assistant-composer textarea, .message-content { background: #fffefa; }
+.workspace-icon-button:hover, .workspace-quiet-button:hover, .suggestion-row button:hover, .message-citations button:hover, .assistant-history-row:hover { transform: translateY(-1px); }
+.workspace-window-bar button:hover { background: #edf2eb; }
+.note-version-row:hover { background: #eff4ed; }
+.version-preview, .candidate-diff > div { background: linear-gradient(145deg, #fffefa, #f8faf5); }
+html:not(.surface-motion-enabled) .motion-light,
+html.surface-motion-reduced .motion-light { animation: none !important; transform: none !important; }
+html:not(.surface-motion-enabled) .home-library-entry:hover,
+html.surface-motion-reduced .home-library-entry:hover,
+html:not(.surface-motion-enabled) .home-tools-entry button:hover,
+html.surface-motion-reduced .home-tools-entry button:hover,
+html:not(.surface-motion-enabled) .workspace-icon-button:hover,
+html.surface-motion-reduced .workspace-icon-button:hover,
+html:not(.surface-motion-enabled) .workspace-quiet-button:hover,
+html.surface-motion-reduced .workspace-quiet-button:hover,
+html:not(.surface-motion-enabled) .suggestion-row button:hover,
+html.surface-motion-reduced .suggestion-row button:hover,
+html:not(.surface-motion-enabled) .message-citations button:hover,
+html.surface-motion-reduced .message-citations button:hover,
+html:not(.surface-motion-enabled) .assistant-history-row:hover,
+html.surface-motion-reduced .assistant-history-row:hover,
+html:not(.surface-motion-enabled) .nav-item:hover .nav-icon,
+html.surface-motion-reduced .nav-item:hover .nav-icon,
+html:not(.surface-motion-enabled) .thumbnails button:hover img,
+html.surface-motion-reduced .thumbnails button:hover img { transform: none; }
+html:not(.surface-motion-enabled) .home-library-entry::before,
+html.surface-motion-reduced .home-library-entry::before { opacity: 0; }
+html:not(.surface-motion-enabled) .home-entry-arrow svg,
+html.surface-motion-reduced .home-entry-arrow svg { transform: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  html.surface-motion-enabled:not(.surface-motion-reduced) .motion-light-sage,
+  html.surface-motion-enabled:not(.surface-motion-reduced) .motion-light-blue,
+  html.surface-motion-enabled:not(.surface-motion-reduced) .motion-light-apricot { will-change: transform, opacity; }
+  html.surface-motion-enabled:not(.surface-motion-reduced) .home-library-entry { transform-style: preserve-3d; }
+  html.surface-motion-enabled:not(.surface-motion-reduced) .home-library-entry:hover {
+    transform: perspective(800px) rotateX(var(--card-tilt-x, 0deg)) rotateY(var(--card-tilt-y, 0deg)) translateY(-2px);
+  }
+}
+@media (max-width: 650px) {
+  .motion-light { width: 100vw; height: 100vw; opacity: .34; }
+  .motion-light-apricot { opacity: .24; }
+  .motion-toggle { min-height: 30px; padding: 0 7px; font-size: 11px; }
+  .settings-motion-panel { padding: 18px; }
+  .settings-motion-row { align-items: flex-start; flex-direction: column; }
+  .home-library-entry::before { display: none; }
+  .settings-motion-panel { margin-top: 20px; }
+  .home-tools-entry button:hover, .workspace-icon-button:hover, .workspace-quiet-button:hover, .suggestion-row button:hover, .message-citations button:hover, .assistant-history-row:hover { transform: none; }
+  @keyframes light-sage-drift { from { opacity: .28; } to { opacity: .38; } }
+  @keyframes light-blue-drift { from { opacity: .26; } to { opacity: .36; } }
+  @keyframes light-apricot-drift { from { opacity: .18; } to { opacity: .27; } }
+}
+@media (hover: none), (pointer: coarse) {
+  .motion-light-sage, .motion-light-blue, .motion-light-apricot { transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-light { animation: none !important; transform: none !important; }
+  .home-library-entry, .home-entry-arrow svg, .document-cover, .workspace-window-bar button { transition: none !important; }
+  .home-library-entry:hover, .home-tools-entry button:hover, .workspace-icon-button:hover, .workspace-quiet-button:hover, .suggestion-row button:hover, .message-citations button:hover, .assistant-history-row:hover { transform: none; }
+}

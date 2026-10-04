@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-09-29T11:57:27.6900526Z",
+  "classification": "isolated synthetic database and file-volume restore drill; no user volumes touched",
+  "isolated_project": "workbench-m5-restore-2018097090",
+  "database_dump_sha256": "db4e1dbcd6f4cf4d7b3ad765df829c9e484eb4af91c7ff00afaf90fedd9df919",
+  "file_archive_sha256": "6baca9f21e2922240e59f4de1a594b60e187ef781ebfbfd17e9cf77fd2b5093a",
+  "source_manifest": {
+    "artifact_id": "277d379a-ed05-5587-bb8d-6b6b2cd96623",
+    "artifact_version_id": "e6586e89-1cf0-5808-8c4f-c3a39ddc0679",
+    "citation_evidence_id": "332a5d18-72a4-5e79-9b6e-47c86c096e7f",
+    "content_unit_count": 1,
+    "document_id": "327e25b2-438c-5367-8f21-0a5b1d77cc84",
+    "page_count": 1,
+    "pdf_sha256": "0762556e3a209f6c8b47de46db5d870215bfff4f110b5082b3b9ee03ab05ebce",
+    "version_id": "ac6f66c8-7b03-58ed-9eae-dc3f86a9f554"
+  },
+  "restored_manifest": {
+    "artifact_id": "277d379a-ed05-5587-bb8d-6b6b2cd96623",
+    "artifact_version_id": "e6586e89-1cf0-5808-8c4f-c3a39ddc0679",
+    "checks": {
+      "active_version_restored": true,
+      "artifact_current_version_restored": true,
+      "citation_link_restored": true,
+      "completed_run_restored": true,
+      "page_and_content_unit_restored": true,
+      "pdf_hash_matches_document_and_version": true
+    },
+    "citation_evidence_id": "332a5d18-72a4-5e79-9b6e-47c86c096e7f",
+    "document_id": "327e25b2-438c-5367-8f21-0a5b1d77cc84",
+    "pdf_sha256": "0762556e3a209f6c8b47de46db5d870215bfff4f110b5082b3b9ee03ab05ebce",
+    "version_id": "ac6f66c8-7b03-58ed-9eae-dc3f86a9f554"
+  }
+}

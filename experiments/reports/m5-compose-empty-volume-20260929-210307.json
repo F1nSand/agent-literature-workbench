@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-09-29T13:03:07.4194057Z",
+  "classification": "isolated Compose empty-volume startup, migration, readiness, and service health acceptance; synthetic only; no Provider key or request",
+  "isolated_project": "m5empty-89e001f13b6c",
+  "actual_loopback_ports": {
+    "db": 62683,
+    "api": 55358,
+    "frontend": 56760
+  },
+  "checks": {
+    "compose_services_healthy": true,
+    "service_health": {
+      "api": "healthy",
+      "db": "healthy",
+      "frontend": "healthy",
+      "worker": "healthy"
+    },
+    "api_readiness": true,
+    "api_readiness_response": {
+      "status": "ok",
+      "database": "ok"
+    },
+    "frontend_http_200": true,
+    "frontend_status_code": 200,
+    "migration_at_head": true,
+    "migration_revision": "20260929_0005",
+    "empty_database_business_counts": "0,0,0,0",
+    "empty_database": true,
+    "provider_calls": 0,
+    "provider_key_empty_in_api_and_worker": true,
+    "compose_project": "m5empty-89e001f13b6c",
+    "worker_healthcheck_scope": "temporary override checks that PID 1 is running app.jobs.worker; upstream Compose has no worker healthcheck"
+  },
+  "cleanup_succeeded": true,
+  "formal_project_services_still_running": true,
+  "result": {
+    "passed": true,
+    "error": null
+  }
+}

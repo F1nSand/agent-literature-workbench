@@ -1,0 +1,1 @@
+"""Topic-scoped memory domain."""

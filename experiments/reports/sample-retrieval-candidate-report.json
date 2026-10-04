@@ -1,0 +1,53 @@
+{
+  "dataset_id": "sample-research-questions-v1",
+  "run_id": "candidate-20260929T012759Z-d0a58d98",
+  "annotation_status": "candidate",
+  "result_status": "candidate-exploration",
+  "official_claim_allowed": false,
+  "scorable_question_count": 8,
+  "run_coverage_complete": true,
+  "corpus_match": true,
+  "corpus_manifest_sha256": "2C66E40A581D068BF7486E71836F9005C1E3DFAD307F50504845DAD2A6A24E84",
+  "run_corpus_manifest_sha256": "2C66E40A581D068BF7486E71836F9005C1E3DFAD307F50504845DAD2A6A24E84",
+  "results": {
+    "R1": {
+      "status": "scored",
+      "cutoff": 8,
+      "questions_ranked": 8,
+      "questions_with_qrels": 8,
+      "questions_missing_rankings": 0,
+      "evidence_recall_at_k": 0.439402,
+      "hit_at_k": 1.0,
+      "mrr_at_k": 0.614583,
+      "latency_questions": 8,
+      "mean_latency_ms": 92.0,
+      "request_cost_cny": 3.8e-05
+    },
+    "R2": {
+      "status": "scored",
+      "cutoff": 8,
+      "questions_ranked": 8,
+      "questions_with_qrels": 8,
+      "questions_missing_rankings": 0,
+      "evidence_recall_at_k": 0.369915,
+      "hit_at_k": 1.0,
+      "mrr_at_k": 0.639583,
+      "latency_questions": 8,
+      "mean_latency_ms": 206.125,
+      "request_cost_cny": 3.8e-05
+    },
+    "R3": {
+      "status": "scored",
+      "cutoff": 8,
+      "questions_ranked": 8,
+      "questions_with_qrels": 8,
+      "questions_missing_rankings": 0,
+      "evidence_recall_at_k": 0.368765,
+      "hit_at_k": 1.0,
+      "mrr_at_k": 0.441667,
+      "latency_questions": 8,
+      "mean_latency_ms": 989.875,
+      "request_cost_cny": 3.8e-05
+    }
+  }
+}

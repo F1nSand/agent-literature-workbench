@@ -1,0 +1,170 @@
+{
+  "recorded_at_utc": "2026-09-28T18:14:44.808316+00:00",
+  "provider": "SiliconFlow",
+  "base_url": "https://api.siliconflow.cn/v1",
+  "account_model_count": 98,
+  "selected_models": {
+    "vision_ocr": "Qwen/Qwen3-VL-8B-Instruct",
+    "chat_tool": "deepseek-ai/DeepSeek-V3.2",
+    "embedding": "Qwen/Qwen3-Embedding-4B",
+    "reranker": "BAAI/bge-reranker-v2-m3",
+    "vision_followup": "Qwen/Qwen3-VL-32B-Instruct"
+  },
+  "probe_limits": {
+    "approved_total_budget_cny": 10,
+    "maximum_billed_requests": 7,
+    "max_output_tokens_per_chat_request": 128,
+    "image_max_edge_px": 1240,
+    "automatic_retries": 0,
+    "ocr_image_bytes": 24299,
+    "vision_image_bytes": 118737,
+    "vision_crop_image_bytes": 101145,
+    "vision_followup_max_output_tokens": 256,
+    "actual_billed_requests": 7
+  },
+  "price_notes": {
+    "deepseek_v3_2": {
+      "source": "https://docs.siliconflow.cn/docs/release-notes/overview",
+      "cny_per_million_tokens": {
+        "prompt_tokens": 4.0,
+        "completion_tokens": 6.0
+      }
+    },
+    "other_models": "Exact account/model rates are not exposed by GET /models; token usage is recorded and no bulk calls are made."
+  },
+  "probes": {
+    "embedding": {
+      "status": "ok",
+      "model": "Qwen/Qwen3-Embedding-4B",
+      "dimensions": 2560,
+      "latency_ms": 297,
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 0,
+        "total_tokens": 13
+      }
+    },
+    "reranker": {
+      "status": "ok",
+      "model": "BAAI/bge-reranker-v2-m3",
+      "latency_ms": 203,
+      "ranked_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": [
+        0.9637080430984497,
+        0.5855898857116699,
+        1.6417863662354648e-05
+      ],
+      "relevant_in_top_two": true,
+      "quality_review": "Both relevant synthetic documents ranked above the unrelated trajectory document; one query and three candidates only."
+    },
+    "tool_call_first_leg": {
+      "status": "ok",
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "latency_ms": 5703,
+      "usage": {
+        "prompt_tokens": 361,
+        "completion_tokens": 81,
+        "total_tokens": 442,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 361
+      },
+      "message": {
+        "tool_calls": [
+          {
+            "name": "find_research_evidence",
+            "arguments": {
+              "query": "Agent 工具调用",
+              "scope": "current_topic"
+            }
+          }
+        ],
+        "finish_reason": null,
+        "content": "我来帮您搜索当前专题中关于Agent工具调用的相关文献。"
+      }
+    },
+    "tool_call_second_leg": {
+      "status": "ok",
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "latency_ms": 10078,
+      "usage": {
+        "prompt_tokens": 118,
+        "completion_tokens": 64,
+        "total_tokens": 182,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 118
+      },
+      "message": {
+        "content": "根据当前专题的搜索结果，关于 **“Agent 工具调用”** 的相关文献目前仅有一条示例记录。这表明该专题下直接相关的文献数量有限，可能的原因包括：\n\n1. **专题范围较新或较专**：Agent 工具调用是人工智能领域（尤其是智能体与工具使用",
+        "finish_reason": null
+      }
+    },
+    "chat_tool": {
+      "status": "roundtrip_ok",
+      "model": "deepseek-ai/DeepSeek-V3.2",
+      "usage": {
+        "prompt_tokens": 479,
+        "completion_tokens": 145
+      },
+      "estimated_cost_cny": 0.002786,
+      "quality_review": "The model returned the expected function name and current-topic scope, then completed the second request after a synthetic local tool result. Retrieval quality and factual grounding were not evaluated."
+    },
+    "ocr_synthetic_scan": {
+      "status": "ok",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "latency_ms": 2594,
+      "usage": {
+        "prompt_tokens": 645,
+        "completion_tokens": 63,
+        "total_tokens": 708
+      },
+      "message": "合成 OCR 测试样本\n\n本文件仅用于扫描页识别测试，不是论文内容。\n物理页码：1\n校验短语：ALPHA 42 BETA\n主题词：引文定位、页面识别\n\n固定夹具 v1 · 预期无需旋转或裁切",
+      "expected_markers": [
+        "合成 OCR 测试样本",
+        "物理页码：1",
+        "ALPHA 42 BETA",
+        "引文定位、页面识别"
+      ],
+      "matched_markers": [
+        "合成 OCR 测试样本",
+        "物理页码：1",
+        "ALPHA 42 BETA",
+        "引文定位、页面识别"
+      ],
+      "marker_recall": 1.0,
+      "quality_review": "All four predefined text markers appear in the response. This single synthetic scan page is a smoke test, not a general OCR accuracy benchmark; bounding-box output was not tested."
+    },
+    "vision_mobia_page_5": {
+      "status": "ok",
+      "model": "Qwen/Qwen3-VL-8B-Instruct",
+      "latency_ms": 9438,
+      "usage": {
+        "prompt_tokens": 666,
+        "completion_tokens": 128,
+        "total_tokens": 794
+      },
+      "message": "根据图中信息，主流程可概括为以下三点：\n\n1.  **特征提取与模式构建**：从原始出行日志中，通过“基于自洽性的出行特征模式提取”（如使用SHAP分析、聚类等方法），构建出行模式库（`XB`）。\n2.  **模式验证与更新**：利用“出行日志库构建与验证更新”模块，通过状态查询（`q`）和匹配（`Match`）机制，验证模式库的有效性，并根据验证结果（如分类准确率）进行动态更新。\n3.  **行程",
+      "human_quality_review": "Insufficient: the 8B response followed details from surrounding page text, missed the figure numbered stages, and stopped at the 128-token output limit."
+    },
+    "vision_mobia_diagram_crop_32b": {
+      "status": "ok",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "latency_ms": 11031,
+      "usage": {
+        "prompt_tokens": 841,
+        "completion_tokens": 241,
+        "total_tokens": 1082
+      },
+      "message": "根据图本身：\n\n编号 1 的主阶段是：**基于自洽性的出行特征模式提取**\n\n编号 2 的主阶段是：**基于动机推理的具体日程生成**\n\n编号 3 的主阶段是：**出行日程的空间映射**\n\n箭头表示的顺序或反馈：\n\n- 从阶段1到阶段2有箭头，表示顺序流程。\n- 从阶段2到阶段1有“反思/更新”箭头，表示反馈。\n- 阶段2内部有“递归推理”箭头，表示循环或迭代过程。\n- 阶段2到阶段3有箭头，表示顺序流程。\n- 阶段3内部有“反馈”箭头，表示反馈。\n- 阶段2右侧“出行自洽性评估”模块内有多个箭头，包括“比较”、“评估”、“更新”，表示评估与反馈循环。\n- “出行自洽性评估”模块与阶段2之间有“RAG检索”和“反思/更新”箭头，表示数据交互与反馈。\n\n图中所有文字和箭头均清晰可读，无需补充。",
+      "quality_review": "Human-checked against the source PDF page: correctly names the three numbered stages and identifies the feedback/iteration arrows. Single cropped figure only; not a general visual-accuracy benchmark."
+    }
+  },
+  "cost_reconciliation": {
+    "deepseek_v3_2_estimate_cny": 0.002786,
+    "total_invoice_verified": false,
+    "note": "Exact account charges for Embedding, Reranker and VLM calls were not exposed by the model-list/completion responses, so no total invoice amount is claimed. The remaining probes were single small inputs, capped outputs, with zero automatic retries and no batch calls."
+  }
+}

@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+data/
+__pycache__/
+.venv/
+node_modules/
+dist/
+.pytest_cache/
+*.egg-info/
+*.py[cod]
+.playwright-mcp/
+
+# Local package caches and generated work artifacts
+**/.pnpm-store/
+/work/

@@ -1,0 +1,313 @@
+{
+  "dataset_id": "sample-research-questions-v1",
+  "annotation_status": "candidate",
+  "corpus_manifest_sha256": "2C66E40A581D068BF7486E71836F9005C1E3DFAD307F50504845DAD2A6A24E84",
+  "source_review": "sample-question-evidence-review.md",
+  "note": "候选证据页由机器辅助初筛，仅供探索。用户或导师确认答案要点和必要证据组前，任何分数都不得称为正式评测结果。",
+  "questions": [
+    {
+      "id": "Q1",
+      "candidate_evidence": [
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 1
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 2
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 3
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 4
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 15
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 16
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 2
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 3
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 4
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 5
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 7
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 8
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 4
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 5
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 7
+        }
+      ],
+      "query": "在本专题的文献中，总结什么是 Agent Harness，分别从每篇涉及该概念的论文提取定义，逐条附带来源页码。"
+    },
+    {
+      "id": "Q2",
+      "candidate_evidence": [
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 2
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 3
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 4
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 5
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 7
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 8
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 12
+        }
+      ],
+      "query": "对比 ModelScope‑Agent 和 Tongyi DeepResearch，二者在记忆模块、工具调用能力两方面有哪些设计差异，输出可导出的对比表格。"
+    },
+    {
+      "id": "Q3",
+      "candidate_evidence": [
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 6
+        }
+      ],
+      "query": "找到 Cost‑Effective Agent Harnesses 论文里面的公式 pass@k，解释这个指标的含义，引用原文对应的页面。"
+    },
+    {
+      "id": "Q4",
+      "candidate_evidence": [
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 1
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 11
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 12
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 5
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 7
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 9
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 10
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 11
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 12
+        }
+      ],
+      "query": "哪些文献提到了科研智能体的评估 Benchmark？列出 Benchmark 名称、用途、出自哪篇论文与页码。"
+    },
+    {
+      "id": "Q5",
+      "candidate_evidence": [
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 5
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 7
+        }
+      ],
+      "query": "中文论文《大语言模型智能体驱动的出行日志生成技术》，它的整体系统架构包含哪几个主要模块，请参考论文中的框图做概括。"
+    },
+    {
+      "id": "Q6",
+      "candidate_evidence": [
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 16
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 2
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 5
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 7
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 8
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 2
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 11
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 12
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 10
+        }
+      ],
+      "query": "本专题内这些 Agent 系统，分别依赖哪些底层大模型？整理成表格，标明论文来源；如果某篇没有明确说明则标注“未在本文给出”。"
+    },
+    {
+      "id": "Q7",
+      "candidate_evidence": [
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 8
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 15
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 6
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 8
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 12
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 16
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 16
+        }
+      ],
+      "query": "哪些论文提到了 Agent 长任务、长轨迹带来的问题？归纳它们提出的解决思路，如果现有专题文献证据不足，请明确告诉我证据不足，不要编造观点。"
+    },
+    {
+      "id": "Q8",
+      "candidate_evidence": [
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 19
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 20
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 21
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 16
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 16
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 6
+        }
+      ],
+      "query": "梳理本专题文献，总结当前基于 LLM 的 Agent 工作台类系统存在哪些未解决的研究局限，每条结论绑定对应的原文证据页码。"
+    }
+  ]
+}

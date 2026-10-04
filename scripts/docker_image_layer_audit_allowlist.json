@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "reviewed_upstream_findings": [
+    {
+      "category": "credential_assignment",
+      "path": "opt/python/alembic/script/write_hooks.py",
+      "sha256": "0808e1f54f26ede5f3dd6ee97d0295c46e1490766b44860a17a02445e6a41b67",
+      "basis": "Pinned Alembic write-hook source contains a fixed revision-script template token marker; this exact source file is not a provider, database, or authentication credential."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/charset_normalizer-3.5.1.dist-info/METADATA",
+      "sha256": "955c93827d59f1280f6d6a76b1e11bfb999cc65a55df83a6f9b28b7bc0e467f6",
+      "basis": "Pinned upstream package metadata contains a documentation path; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/fastapi/param_functions.py",
+      "sha256": "24734f2c862fa00c1d9d965abc856cc4e6adf31db77d7fca977deb7a1ec72a5f",
+      "basis": "Pinned upstream API documentation contains a filesystem example; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/greenlet/platform/switch_arm64_masm.obj",
+      "sha256": "0e62e7201fe2728107033d676ae7bfa493d366047d12533bf8d9b3b6bfa8f7f5",
+      "basis": "Pinned upstream cross-architecture wheel object contains build-path metadata; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/numpy/lib/_datasource.py",
+      "sha256": "9ead7eb599f6ed893aae85ddf9a8316502b4efd0595cea2b9ddf7af1ab097460",
+      "basis": "Pinned upstream module contains standard filesystem examples; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/psycopg_binary.libs/libselinux-0922c95c.so.1",
+      "sha256": "d4fa8e7fb3add960a68325a59c9694244aea3213fd739a50815cb067c4965654",
+      "basis": "Pinned upstream binary dependency contains build-path metadata; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/pydantic_core-2.46.5.dist-info/sboms/pydantic-core.cyclonedx.json",
+      "sha256": "145b4b747f7396e8d50ca32c8dad5482b9ed09704e860675fa9b531b636f83f9",
+      "basis": "Pinned upstream SBOM records build paths; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/pypdf-6.16.2.dist-info/METADATA",
+      "sha256": "bea9aa2025f9f845d9bbb9d2b413d5060d484c992624c36ceac0c1c4291b7ca2",
+      "basis": "Pinned upstream package metadata contains a documentation path; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/sqlalchemy/dialects/mysql/mysqldb.py",
+      "sha256": "e4c13b074588f46f2dc39e3cd9805e8c3837f2e54c5d1da851ab0d0ce0ac02a4",
+      "basis": "Pinned upstream optional MySQL dialect includes filesystem examples; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/sqlalchemy/dialects/mysql/pymysql.py",
+      "sha256": "a2ca747a6d6cdc28a9e55a5c8fe3de687edbb471089e8acefaab37e759aec374",
+      "basis": "Pinned upstream optional MySQL dialect includes filesystem examples; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/uuid_utils-0.17.1.dist-info/sboms/uuid-utils.cyclonedx.json",
+      "sha256": "d3ffaa078cdbe9d9af0436ce2fa5f281c70f524e85a54a8b3713782962325e13",
+      "basis": "Pinned upstream SBOM records build paths; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/watchfiles-1.3.0.dist-info/sboms/watchfiles_rust_notify.cyclonedx.json",
+      "sha256": "a2f7c6822e49c6a02e9cc56b86a6767ca4f46d9f69a762d77c8d48871de5aef8",
+      "basis": "Pinned upstream SBOM records build paths; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "opt/python/watchfiles/filters.py",
+      "sha256": "6d22bdb0feff009f9ed71a94ff21d42da88d3e96188fe5094f81a1d2efce4358",
+      "basis": "Pinned upstream module contains a filesystem example; sanitized review found no local workspace or home-profile match."
+    },
+    {
+      "category": "personal_absolute_path",
+      "path": "usr/lib/python3.13/venv/scripts/common/Activate.ps1",
+      "sha256": "eb8ce20f580877d300c4fed60a7f36daa18715d35c50bb3596d6995d023b4ffe",
+      "basis": "Pinned Python runtime includes its standard virtual-environment activation template; sanitized review found no local workspace or home-profile match."
+    }
+  ]
+}

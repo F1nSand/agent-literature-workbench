@@ -1,0 +1,178 @@
+{
+  "dataset_id": "sample-research-questions-supplemental-v1",
+  "annotation_status": "candidate",
+  "corpus_manifest_sha256": "2C66E40A581D068BF7486E71836F9005C1E3DFAD307F50504845DAD2A6A24E84",
+  "source_review": "supplemental-candidate-set.json",
+  "proposed_holdout_status": "proposed_not_frozen",
+  "note": "Machine-assisted candidate evidence only. Do not present retrieval scores as official until all required labels are reviewed and confirmed.",
+  "questions": [
+    {
+      "id": "Q9",
+      "query": "在 ARC-AGI-1 public evaluation set 上，关闭 definer 的 think scratchpad 与关闭 train-feedback refinement 两项消融，对 pass@2 的影响分别是多少？",
+      "candidate_evidence": [
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 3,
+          "pdf_sha256": "519213AB1946D78C8693F7F4E3B79A288379EE639979A6DFFE6BD3076CDEE423",
+          "quote": "disabling the definer’s think scratchpad costs −5.75 pp pass@2, while disabling train-feedback refinement only yields −0.75 pp."
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "query": "论文报告的 CoT→Pipeline（pass@2）与 Pipeline→Reflective Orchestrator（pass@2）配对 bootstrap 增幅及其 95% CI 分别是多少？",
+      "candidate_evidence": [
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 12,
+          "pdf_sha256": "519213AB1946D78C8693F7F4E3B79A288379EE639979A6DFFE6BD3076CDEE423",
+          "quote": "CoT→Pipeline (pass@2)+27.50 ∗ [+23.00,+32.00]"
+        },
+        {
+          "document": "01‑Cost‑Effective‑Agent‑Harnesses.pdf",
+          "page_number": 12,
+          "pdf_sha256": "519213AB1946D78C8693F7F4E3B79A288379EE639979A6DFFE6BD3076CDEE423",
+          "quote": "Pipeline→Reflective Orchestrator (pass@2)+9.75 ∗ [+6.50,+13.25]"
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "query": "ModelScope-Agent 论文中 MSAgent-Bench 的语言、任务类型、实例数、API 类型和平均 turn/step 分别是什么？",
+      "candidate_evidence": [
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 5,
+          "pdf_sha256": "ADB46BFBE0F05631DE6E0E2B4273E2E7A823D1D1A56D66C303FC77C1A5DFE596",
+          "quote": "MSAgent-Bench (ours) English + Chinese Tool Use + Common Chat 598 K Common API + Model API 1.52 1.31"
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "query": "ModelScope-Agent 的伦理声明明确列出了哪些潜在输出风险？作者把改进框架安全性描述为已完成措施，还是未来工作？",
+      "candidate_evidence": [
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 7,
+          "pdf_sha256": "ADB46BFBE0F05631DE6E0E2B4273E2E7A823D1D1A56D66C303FC77C1A5DFE596",
+          "quote": "the customized model may generate some biased, fake, and unsafe information"
+        },
+        {
+          "document": "02‑ModelScope‑Agent.pdf",
+          "page_number": 7,
+          "pdf_sha256": "ADB46BFBE0F05631DE6E0E2B4273E2E7A823D1D1A56D66C303FC77C1A5DFE596",
+          "quote": "design specific methods to improve the safety of the agent framework in the future."
+        }
+      ]
+    },
+    {
+      "id": "Q13",
+      "query": "Tongyi DeepResearch 的 Agentic CPT mid-training 怎样安排两个阶段的上下文长度和长序列数据？",
+      "candidate_evidence": [
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 6,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "We initiate with a 32K context length in the first stage, before expanding to 128K in the second."
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 6,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "a substantial corpus of long-sequence (64K-128K) agentic behavior data."
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "query": "Tongyi DeepResearch 把 Agent 训练环境分成哪三类？分别概括各类在稳定性、成本或真实反馈上的取舍。",
+      "candidate_evidence": [
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 4,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "perfect stability, zero interaction cost, and unlimited scalability, but lacks real-world feedback signals."
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 4,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "stability, rapid response, and low cost"
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 4,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "a notable sim-to-real gap."
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 4,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "the most authentic data distribution and feedback signals"
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 4,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "continuous distribution shift in training data"
+        },
+        {
+          "document": "03‑Tongyi‑DeepResearch‑Report.pdf",
+          "page_number": 4,
+          "pdf_sha256": "90A2C738ED8CC00C4AD8EA910E1D2494F812E7E0130DDA518477E139ECC35BCA",
+          "quote": "The tangible expense of each API call makes large-scale exploration economically prohibitive."
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "query": "MobiA 的消融实验中，移除出行模式自洽机制和移除动机推理策略分别造成了多大性能下降？",
+      "candidate_evidence": [
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 12,
+          "pdf_sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+          "quote": "模型的性能分别下降了约"
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 12,
+          "pdf_sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+          "quote": "24%"
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 12,
+          "pdf_sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+          "quote": "16%"
+        }
+      ]
+    },
+    {
+      "id": "Q16",
+      "query": "MobiA 的空间实验区域范围和地块数是多少？论文随后按什么比例模拟了多少人的出行？",
+      "candidate_evidence": [
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 11,
+          "pdf_sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+          "quote": "深圳市南山区一片约 5 km × 3 km 的区域"
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 11,
+          "pdf_sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+          "quote": "共得到 68 个地块单元作为智能体活动空间。"
+        },
+        {
+          "document": "04‑中文‑大语言模型智能体出行日志.pdf",
+          "page_number": 14,
+          "pdf_sha256": "519FED9EDE2F50E26D833312C4524537F5EE370A7420B8D3C7C824E228A04B70",
+          "quote": "按照 1:10 的比例，模拟了约 5 万人的出行"
+        }
+      ]
+    }
+  ]
+}

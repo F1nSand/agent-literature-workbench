@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "milestone": "M2",
+  "run_id": "m2-single-paper-2026-09-29",
+  "date": "2026-09-29",
+  "scope": {
+    "documents": 1,
+    "questions": 1,
+    "budget_limit_cny": 10,
+    "total_request_limit": 35,
+    "automatic_retries": 0
+  },
+  "document": {
+    "filename": "01-Cost-Effective-Agent-Harnesses.pdf",
+    "sha256": "519213AB1946D78C8693F7F4E3B79A288379EE639979A6DFFE6BD3076CDEE423",
+    "physical_pages": 24,
+    "content_units": 54,
+    "embedded_pages": 54,
+    "embedding_dimensions": 2560,
+    "native_text_pages": 24,
+    "ocr_pages": 0,
+    "final_status": "ready"
+  },
+  "question": {
+    "id": "Q3",
+    "topic": "pass@k",
+    "answer_summary": "给出无偏 pass@k 估计式，并解释 n、c、k 的含义。",
+    "citation_physical_page": 6,
+    "citation_quote": "the unbiased Codex estimator",
+    "initial_retrieval_candidate_pages": [6, 14, 11, 3, 21, 2, 1],
+    "answer_formula": "pass@k = 1 - binom(n-c, k) / binom(n, k)",
+    "browser_citation_navigation_verified": true,
+    "pdf_reader_page_field_verified": "6 / 24",
+    "visual_formula_check": "第 6 页裁剪图人工核对包含对应 pass@k 估计式。"
+  },
+  "provider_calls": {
+    "total": 7,
+    "embedding": {
+      "calls": 2,
+      "input_tokens": 21062,
+      "input_token_limit": 40000
+    },
+    "chat": {
+      "calls": 2,
+      "prompt_tokens": 4329,
+      "completion_tokens": 336
+    },
+    "reranker": {
+      "calls": 1,
+      "usage_returned_by_provider": false,
+      "estimated_tokens": 19162,
+      "listed_as_free": true
+    },
+    "vision": {
+      "calls": 2,
+      "prompt_tokens": 2272,
+      "completion_tokens": 315
+    },
+    "ocr": {
+      "calls": 0
+    },
+    "known_public_list_price_estimate_cny": 0.025812,
+    "unpriced_requests": 0,
+    "price_source": "https://siliconflow.cn/pricing",
+    "price_checked_on": "2026-09-29",
+    "is_account_invoice": false
+  },
+  "validation": {
+    "backend_pytest": "15 passed, 1 Starlette deprecation warning",
+    "frontend_production_build": "passed",
+    "api_database_readiness": "ok",
+    "browser_console_errors": 0,
+    "citation_page_navigation": "passed",
+    "frontend_product_copy_audit": "no evaluation or development progress copy found on audited user-facing routes",
+    "visual_page_selection_regression_test": "passed"
+  },
+  "local_failures_before_provider_use": {
+    "count": 2,
+    "provider_calls": 0,
+    "resolution": [
+      "Flush page rows before inserting content units that reference them.",
+      "Copy unit IDs and text before commit/session close to avoid reading expired ORM state."
+    ]
+  },
+  "limitations": [
+    "Single-document, single-question evidence only; this does not establish corpus-scale quality or throughput.",
+    "All 24 pages had native text, so this run did not exercise the OCR fallback.",
+    "The visual page-selection correction has unit coverage and page 6 was manually verified, but the saved question was not rerun through the full model pipeline after the correction because the per-run visual request allowance was exhausted.",
+    "The cost figure is an estimate from public list prices and returned usage, not an account invoice."
+  ]
+}

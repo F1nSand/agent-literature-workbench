@@ -1,0 +1,13 @@
+{
+  "provider": "siliconflow",
+  "api_key_env": "SILICONFLOW_API_KEY",
+  "base_url": "https://api.siliconflow.cn/v1",
+  "models": {
+    "ocr": "deepseek-ai/DeepSeek-OCR",
+    "agent": "Qwen/Qwen3.6-35B-A3B",
+    "vision": "Qwen/Qwen3.6-35B-A3B",
+    "embedding": "Qwen/Qwen3-Embedding-4B",
+    "reranker": "Qwen/Qwen3-Reranker-4B"
+  },
+  "embedding_dimensions": 2560
+}
