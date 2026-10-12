@@ -11,10 +11,12 @@ FROM nginx:alpine@sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43
 
 RUN set -eux; \
     mkdir -p /stage/usr/sbin /stage/etc/nginx /stage/usr/share/nginx/html \
-        /stage/var/run /stage/var/cache/nginx/client_temp /stage/var/cache/nginx/proxy_temp \
+        /stage/var/run /stage/var/log/nginx /stage/var/cache/nginx/client_temp /stage/var/cache/nginx/proxy_temp \
         /stage/var/cache/nginx/fastcgi_temp /stage/var/cache/nginx/uwsgi_temp \
         /stage/var/cache/nginx/scgi_temp /stage/tmp; \
     cp /usr/sbin/nginx /stage/usr/sbin/nginx; \
+    cp /etc/passwd /stage/etc/passwd; \
+    cp /etc/group /stage/etc/group; \
     cp /etc/nginx/mime.types /stage/etc/nginx/mime.types; \
     ldd /usr/sbin/nginx | awk '{ for (i=1; i<=NF; i++) if ($i ~ /^\//) { print $i; break } }' | sort -u | \
         while read -r lib; do mkdir -p "/stage$(dirname "$lib")"; cp -L "$lib" "/stage$lib"; done
